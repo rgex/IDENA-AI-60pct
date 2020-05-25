@@ -6,6 +6,7 @@ import json
 
 keywords = {}
 
+# compares the extracted keywords from two images and calculates their similarity
 def compareImageKeywords(keywords1, keywords2):
     score = 0
     for keyword1 in keywords1:
@@ -16,6 +17,7 @@ def compareImageKeywords(keywords1, keywords2):
                         score += keyword1["score"] * keyword2["score"]
     return score
 
+# calculates the score of a flip
 def calculateScore(flipKeywords):
     return compareImageKeywords(flipKeywords[0], flipKeywords[1]) + compareImageKeywords(flipKeywords[1], flipKeywords[2]) + compareImageKeywords(flipKeywords[2], flipKeywords[3])
 
@@ -41,6 +43,7 @@ for filename in glob.glob('all-ai/*'):
         scoreLeft = calculateScore(leftFlip)
         scoreRight = calculateScore(rightFlip)
 
+        # the flip with the highest score is considered to be the correct one
         if scoreLeft > scoreRight and flip['answer'] == 'Left':
             correct += 1
         elif scoreLeft < scoreRight and flip['answer'] == 'Right':
