@@ -57,7 +57,7 @@ for filename in glob.glob('all-ai/*'):
 
 print("correct: " + str(correct))
 print("incorrect: " + str(incorrect))
-print("draw: " + str(draw))
+print("tie: " + str(tie))
 print("correct percentage:" + str(((correct + draw/2) / (correct + incorrect + draw)) * 100) + " %")
 sys.exit()
 
