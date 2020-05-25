@@ -23,7 +23,7 @@ def calculateScore(flipKeywords):
 
 correct = 0
 incorrect = 0
-draw = 0
+tie = 0
 
 for filename in glob.glob('all-ai/*'):
     flipFile = open(filename)
