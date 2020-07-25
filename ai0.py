@@ -23,7 +23,7 @@ def calculateScore(flipKeywords):
 
 correct = 0
 incorrect = 0
-tie = 0
+draw = 0
 
 for filename in glob.glob('all-ai/*'):
     flipFile = open(filename)
@@ -53,11 +53,10 @@ for filename in glob.glob('all-ai/*'):
         elif scoreLeft < scoreRight and flip['answer'] == 'Left':
             incorrect += 1
         else:
-            tie += 1
+            draw += 1
 
 print("correct: " + str(correct))
 print("incorrect: " + str(incorrect))
-print("tie: " + str(tie))
+print("draw: " + str(draw))
 print("correct percentage:" + str(((correct + draw/2) / (correct + incorrect + draw)) * 100) + " %")
 sys.exit()
-
